@@ -15,11 +15,13 @@
     <div id="instructions">
         觸控按鈕移動與射擊, Game Over 後點擊按鈕重新開始
     </div>
-    <!-- *** 直接排列按鈕順序為 左 - 右 - 發射 *** -->
+    <!-- *** 再次調整結構以分組 *** -->
     <div id="touchControls">
-        <button id="leftButton" class="controlButton">◀</button>
-        <button id="rightButton" class="controlButton">▶</button>
-        <button id="fireButton" class="controlButton">🚀</button>
+        <div id="moveControls"> <!-- 包裹移動按鈕 -->
+            <button id="leftButton" class="controlButton">◀</button>
+            <button id="rightButton" class="controlButton">▶</button>
+        </div>
+        <button id="fireButton" class="controlButton">🚀</button> <!-- 發射按鈕獨立 -->
     </div>
     <script src="script.js"></script>
 </body>
