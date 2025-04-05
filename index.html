@@ -2,7 +2,6 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
-    <!-- *** 確保 viewport meta 標籤包含 user-scalable=no *** -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>外星入侵者 (Mobile)</title>
     <link rel="stylesheet" href="style.css">
@@ -16,10 +15,13 @@
     <div id="instructions">
         觸控按鈕移動與射擊, Game Over 後點擊按鈕重新開始
     </div>
+    <!-- *** 修改觸控按鈕結構 *** -->
     <div id="touchControls">
-        <button id="leftButton" class="controlButton">◀</button>
-        <button id="fireButton" class="controlButton">🚀</button>
-        <button id="rightButton" class="controlButton">▶</button>
+        <div id="moveControls"> <!-- 包裹移動按鈕 -->
+            <button id="leftButton" class="controlButton">◀</button>
+            <button id="rightButton" class="controlButton">▶</button>
+        </div>
+        <button id="fireButton" class="controlButton">🚀</button> <!-- 發射按鈕獨立 -->
     </div>
     <script src="script.js"></script>
 </body>
