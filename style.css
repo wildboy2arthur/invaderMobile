@@ -1,0 +1,95 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #111;
+    color: #eee;
+    font-family: sans-serif;
+    overflow: hidden; /* 防止頁面滾動 */
+    touch-action: manipulation; /* 防止 body 上的雙擊縮放 */
+}
+
+h1 {
+    margin-bottom: 5px;
+    color: #0f0;
+    font-size: 1.5em;
+}
+
+#gameContainer {
+    position: relative;
+    width: 800px;
+    max-width: 100%;
+    margin-bottom: 10px;
+}
+
+canvas {
+    border: 2px solid #0f0;
+    background-color: #000;
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+#instructions {
+    margin-top: 5px;
+    color: #aaa;
+    font-size: 0.8em;
+    text-align: center;
+}
+
+#touchControls {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 80%;
+    max-width: 400px;
+    margin-top: 15px;
+}
+
+.controlButton {
+    font-size: 2em;
+    padding: 15px 25px;
+    background-color: rgba(100, 100, 100, 0.6);
+    color: white;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: none; /* *** 關鍵：阻止按鈕上的所有預設觸控行為 *** */
+}
+
+.controlButton:active {
+    background-color: rgba(150, 150, 150, 0.8);
+}
+
+.gameOverButton {
+    display: none;
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 15px 30px;
+    font-size: 1.5em;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 20;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: none; /* *** 關鍵：阻止按鈕上的所有預設觸控行為 *** */
+}
+
+@media (max-width: 800px) {
+    h1 { font-size: 1.2em; }
+    #instructions { font-size: 0.7em; }
+    .controlButton { font-size: 1.5em; padding: 10px 20px; }
+    .gameOverButton { font-size: 1.2em; padding: 10px 20px; }
+}

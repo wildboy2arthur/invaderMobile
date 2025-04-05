@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <!-- *** 確保 viewport meta 標籤包含 user-scalable=no *** -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>外星入侵者 (Mobile)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>外星入侵者</h1>
+    <div id="gameContainer">
+        <canvas id="gameCanvas"></canvas>
+        <button id="restartButton" class="gameOverButton">重新開始</button>
+    </div>
+    <div id="instructions">
+        觸控按鈕移動與射擊, Game Over 後點擊按鈕重新開始
+    </div>
+    <div id="touchControls">
+        <button id="leftButton" class="controlButton">◀</button>
+        <button id="fireButton" class="controlButton">🚀</button>
+        <button id="rightButton" class="controlButton">▶</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
