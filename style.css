@@ -1,54 +1,29 @@
-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    background-color: #111;
-    color: #eee;
-    font-family: sans-serif;
-    overflow: hidden; /* 防止頁面滾動 */
-    touch-action: manipulation; /* 防止 body 上的雙擊縮放 */
-}
+/* ... (body, h1, gameContainer, canvas, instructions 的樣式保持不變) ... */
+body { display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh; margin: 0; background-color: #111; color: #eee; font-family: sans-serif; overflow: hidden; touch-action: manipulation; }
+h1 { margin-bottom: 5px; color: #0f0; font-size: 1.5em; }
+#gameContainer { position: relative; width: 800px; max-width: 100%; margin-bottom: 10px; }
+canvas { border: 2px solid #0f0; background-color: #000; display: block; width: 100%; height: auto; }
+#instructions { margin-top: 5px; color: #aaa; font-size: 0.8em; text-align: center; }
 
-h1 {
-    margin-bottom: 5px;
-    color: #0f0;
-    font-size: 1.5em;
-}
 
-#gameContainer {
-    position: relative;
-    width: 800px;
-    max-width: 100%;
-    margin-bottom: 10px;
-}
-
-canvas {
-    border: 2px solid #0f0;
-    background-color: #000;
-    display: block;
-    width: 100%;
-    height: auto;
-}
-
-#instructions {
-    margin-top: 5px;
-    color: #aaa;
-    font-size: 0.8em;
-    text-align: center;
-}
-
+/* *** 修改觸控按鈕容器樣式 *** */
 #touchControls {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 80%;
-    max-width: 400px;
+    /* *** 將移動按鈕組推到左邊，發射按鈕推到右邊 *** */
+    justify-content: space-between;
+    align-items: center; /* 保持垂直居中 */
+    width: 90%; /* 可以稍微加寬佔比 */
+    max-width: 500px; /* 限制最大寬度 */
     margin-top: 15px;
 }
 
+/* *** 新增移動按鈕容器的樣式 *** */
+#moveControls {
+    display: flex; /* 讓左右按鈕水平排列 */
+    gap: 20px; /* 在左右按鈕之間添加一些間距 */
+}
+
+/* 控制按鈕通用樣式 (保持不變) */
 .controlButton {
     font-size: 2em;
     padding: 15px 25px;
@@ -60,36 +35,33 @@ canvas {
     user-select: none;
     -webkit-user-select: none;
     -webkit-tap-highlight-color: transparent;
-    touch-action: none; /* *** 關鍵：阻止按鈕上的所有預設觸控行為 *** */
+    touch-action: none;
 }
 
 .controlButton:active {
     background-color: rgba(150, 150, 150, 0.8);
 }
 
+/* Game Over 按鈕樣式 (保持不變) */
 .gameOverButton {
     display: none;
     position: absolute;
-    top: 65%;
-    left: 50%;
+    top: 65%; left: 50%;
     transform: translate(-50%, -50%);
-    padding: 15px 30px;
-    font-size: 1.5em;
-    background-color: #dc3545;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    z-index: 20;
-    user-select: none;
-    -webkit-user-select: none;
+    padding: 15px 30px; font-size: 1.5em;
+    background-color: #dc3545; color: white;
+    border: none; border-radius: 5px;
+    cursor: pointer; z-index: 20;
+    user-select: none; -webkit-user-select: none;
     -webkit-tap-highlight-color: transparent;
-    touch-action: none; /* *** 關鍵：阻止按鈕上的所有預設觸控行為 *** */
+    touch-action: none;
 }
 
+/* 媒體查詢 (保持不變) */
 @media (max-width: 800px) {
     h1 { font-size: 1.2em; }
     #instructions { font-size: 0.7em; }
     .controlButton { font-size: 1.5em; padding: 10px 20px; }
     .gameOverButton { font-size: 1.2em; padding: 10px 20px; }
+    #moveControls { gap: 10px; } /* 小螢幕時減少移動按鈕間距 */
 }
