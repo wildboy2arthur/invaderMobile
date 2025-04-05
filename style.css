@@ -6,32 +6,31 @@ canvas { border: 2px solid #0f0; background-color: #000; display: block; width: 
 #instructions { margin-top: 5px; color: #aaa; font-size: 0.8em; text-align: center; }
 
 
-/* *** 觸控按鈕容器樣式 *** */
+/* *** 修改觸控按鈕容器樣式 *** */
 #touchControls {
     display: flex;
-    /* *** 將按鈕分散對齊 *** */
-    /* space-between 會將第一個推到最左，最後一個推到最右 */
-    /* space-around 會讓每個按鈕兩側空間相等 */
-    /* 你可以試試看哪個效果比較好，這裡先用 space-between */
+    /* *** 將移動組推到最左，發射鈕推到最右 *** */
     justify-content: space-between;
     align-items: center;
-    width: 90%;
-    max-width: 500px;
+    width: 90%; /* 或 95%，讓按鈕更靠邊 */
+    max-width: 600px; /* 可以適當增加最大寬度 */
     margin-top: 15px;
 }
 
-/* *** 移除 #moveControls 的樣式，因為該元素已不存在 *** */
-/*
+/* *** 移動按鈕容器的樣式 *** */
 #moveControls {
     display: flex;
-    gap: 20px;
+    /* *** 讓左右按鈕靠在一起，可以設置 gap 為 0 或一個很小的值 *** */
+    gap: 2px; /* 例如 2px 的小間距 */
+    /* 或者 gap: 0; 如果想完全貼合 */
 }
-*/
 
-/* 控制按鈕通用樣式 (保持不變) */
+/* *** 控制按鈕通用樣式 - 放大 *** */
 .controlButton {
-    font-size: 2em;
-    padding: 15px 25px;
+    /* 原來是 2em, 放大 1/4 -> 2 * 1.25 = 2.5em */
+    font-size: 2.5em;
+    /* 調整 padding 以匹配新的字體大小 */
+    padding: 18px 30px; /* 可以微調 */
     background-color: rgba(100, 100, 100, 0.6);
     color: white;
     border: 2px solid #ccc;
@@ -47,13 +46,15 @@ canvas { border: 2px solid #0f0; background-color: #000; display: block; width: 
     background-color: rgba(150, 150, 150, 0.8);
 }
 
-/* Game Over 按鈕樣式 (保持不變) */
+/* *** Game Over 按鈕樣式 - 也可考慮放大 *** */
 .gameOverButton {
     display: none;
     position: absolute;
     top: 65%; left: 50%;
     transform: translate(-50%, -50%);
-    padding: 15px 30px; font-size: 1.5em;
+    /* 原來是 1.5em, 放大 1/4 -> 1.5 * 1.25 = 1.875em */
+    font-size: 1.8em; /* 約 1.875 */
+    padding: 18px 35px; /* 調整 padding */
     background-color: #dc3545; color: white;
     border: none; border-radius: 5px;
     cursor: pointer; z-index: 20;
@@ -62,11 +63,19 @@ canvas { border: 2px solid #0f0; background-color: #000; display: block; width: 
     touch-action: none;
 }
 
-/* 媒體查詢 (保持不變, 移除 moveControls gap) */
+/* *** 媒體查詢 - 同步放大 *** */
 @media (max-width: 800px) {
     h1 { font-size: 1.2em; }
     #instructions { font-size: 0.7em; }
-    .controlButton { font-size: 1.5em; padding: 10px 20px; }
-    .gameOverButton { font-size: 1.2em; padding: 10px 20px; }
-    /* #moveControls { gap: 10px; } */ /* 移除 */
+    /* 原來是 1.5em, 放大 1/4 -> 1.875em */
+    .controlButton {
+        font-size: 1.8em; /* 約 1.875 */
+        padding: 12px 22px; /* 調整 padding */
+    }
+    /* 原來是 1.2em, 放大 1/4 -> 1.5em */
+    .gameOverButton {
+        font-size: 1.5em;
+        padding: 12px 25px; /* 調整 padding */
+    }
+    #moveControls { gap: 1px; } /* 小螢幕時更近 */
 }
