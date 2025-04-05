@@ -6,22 +6,27 @@ canvas { border: 2px solid #0f0; background-color: #000; display: block; width: 
 #instructions { margin-top: 5px; color: #aaa; font-size: 0.8em; text-align: center; }
 
 
-/* *** 修改觸控按鈕容器樣式 *** */
+/* *** 觸控按鈕容器樣式 *** */
 #touchControls {
     display: flex;
-    /* *** 將移動按鈕組推到左邊，發射按鈕推到右邊 *** */
+    /* *** 將按鈕分散對齊 *** */
+    /* space-between 會將第一個推到最左，最後一個推到最右 */
+    /* space-around 會讓每個按鈕兩側空間相等 */
+    /* 你可以試試看哪個效果比較好，這裡先用 space-between */
     justify-content: space-between;
-    align-items: center; /* 保持垂直居中 */
-    width: 90%; /* 可以稍微加寬佔比 */
-    max-width: 500px; /* 限制最大寬度 */
+    align-items: center;
+    width: 90%;
+    max-width: 500px;
     margin-top: 15px;
 }
 
-/* *** 新增移動按鈕容器的樣式 *** */
+/* *** 移除 #moveControls 的樣式，因為該元素已不存在 *** */
+/*
 #moveControls {
-    display: flex; /* 讓左右按鈕水平排列 */
-    gap: 20px; /* 在左右按鈕之間添加一些間距 */
+    display: flex;
+    gap: 20px;
 }
+*/
 
 /* 控制按鈕通用樣式 (保持不變) */
 .controlButton {
@@ -57,11 +62,11 @@ canvas { border: 2px solid #0f0; background-color: #000; display: block; width: 
     touch-action: none;
 }
 
-/* 媒體查詢 (保持不變) */
+/* 媒體查詢 (保持不變, 移除 moveControls gap) */
 @media (max-width: 800px) {
     h1 { font-size: 1.2em; }
     #instructions { font-size: 0.7em; }
     .controlButton { font-size: 1.5em; padding: 10px 20px; }
     .gameOverButton { font-size: 1.2em; padding: 10px 20px; }
-    #moveControls { gap: 10px; } /* 小螢幕時減少移動按鈕間距 */
+    /* #moveControls { gap: 10px; } */ /* 移除 */
 }
